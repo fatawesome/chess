@@ -47,6 +47,10 @@ const config: Configuration = {
         test: /\.css$/i,
         use: [MiniCssExtractPlugin.loader, "css-loader"],
       },
+      {
+        test: /\.svg/,
+        type: 'asset/resource'
+      }
     ],
   },
   output: {

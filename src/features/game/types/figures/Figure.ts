@@ -1,4 +1,4 @@
-import { Color, FigureType, Position } from '../../types';
+import { Color, FigureType, Position } from '../../../../types';
 
 export abstract class Figure {
   protected constructor(

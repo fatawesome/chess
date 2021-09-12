@@ -9,14 +9,16 @@ interface Props {
   className?: string
 }
 
+import pawnImage from '../../../../assets/svg/figures/white-pawn.svg';
+
 const Board: React.FC<Props> = ({ className, size }) => {
   const coordinates = generateCoordinates(size);
   const blocks = coordinates.map(coordinate => (
     <Square
       key={`${coordinate.x}:${coordinate.y}`}
-      active={true}
+      coordinate={coordinate}
     >
-      X
+      <img src={pawnImage} alt="Pawn" />
     </Square>
   ))
 
