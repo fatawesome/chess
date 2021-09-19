@@ -1,5 +1,5 @@
 import React from 'react';
-import { Board } from '../features/game/components/Board';
+import Board from '../features/board/Board';
 
 const App: React.FC = () => {
   return (

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Coordinate } from '../Board/utils';
+import { Coordinate } from '../../utils/board';
 
 interface Props {
   coordinate: Coordinate;

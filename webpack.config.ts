@@ -17,7 +17,10 @@ const config: Configuration = {
     app: path.join(__dirname, 'src', 'index.tsx')
   },
   resolve: {
-    extensions: ['.ts', '.tsx', '.js']
+    extensions: ['.ts', '.tsx', '.js'],
+    alias: {
+      '@assets': path.resolve(__dirname, 'src/assets/'),
+    },
   },
   devtool: "inline-source-map",
   devServer: {
