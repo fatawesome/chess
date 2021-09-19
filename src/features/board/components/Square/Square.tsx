@@ -9,8 +9,8 @@ interface Props {
 }
 
 enum SquareColor {
-  Dark = '#441a03',
-  Light = '#b5915f',
+  Dark = '#9f4b1d',
+  Light = '#cea76a',
   Active = 'lightgreen',
   Danger = 'lightred'
 }
