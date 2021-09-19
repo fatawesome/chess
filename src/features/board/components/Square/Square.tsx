@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { MouseEventHandler } from 'react';
 import styled from 'styled-components';
 import { Coordinate } from '../../utils/board';
+import { Cell } from '../../types';
+import { FigureImage } from '../FigureImage';
 
 interface Props {
-  coordinate: Coordinate;
+  cell: Cell
   active?: boolean;
   className?: string;
 }
@@ -17,16 +19,24 @@ enum SquareColor {
 
 const isLight = (coordinate: Coordinate) => coordinate.x % 2 === coordinate.y % 2
 
-function getSquareColor({ coordinate, active }: Props): SquareColor {
-  if (active) { return SquareColor.Active; }
-  if (isLight(coordinate)) { return SquareColor.Light; }
+function getSquareColor(cell: Cell): SquareColor {
+  if (isLight(cell.coordinate)) { return SquareColor.Light; }
   return SquareColor.Dark;
 }
 
-const Square: React.FC<Props> = (props) => {
+const Square: React.FC<Props> = ({ className, cell }) => {
+  const figure = cell.getFigure();
+
+  const onClick: MouseEventHandler<HTMLDivElement> = (e) => {
+    e.preventDefault();
+    console.log(cell)
+  }
+
   return (
-    <div className={props.className}>
-      { props.children }
+    <div className={className} onClick={onClick}>
+      {figure &&
+        <FigureImage figure={figure} />
+      }
     </div>
   )
 }
@@ -35,7 +45,7 @@ const StyledSquare = styled(Square)`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: ${props => getSquareColor(props)};
+  background-color: ${props => getSquareColor(props.cell)};
 `
 
 export default StyledSquare;
